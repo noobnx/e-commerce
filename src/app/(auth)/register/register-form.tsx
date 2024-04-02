@@ -47,7 +47,7 @@ export default function RegisterForm() {
                   <FormItem>
                      <FormLabel>Email</FormLabel>
                      <FormControl>
-                        <Input placeholder="shadcn" {...field} />
+                        <Input {...field} />
                      </FormControl>
                      <FormMessage />
                   </FormItem>
@@ -60,7 +60,7 @@ export default function RegisterForm() {
                   <FormItem>
                      <FormLabel>Name</FormLabel>
                      <FormControl>
-                        <Input placeholder="shadcn" {...field} />
+                        <Input {...field} />
                      </FormControl>
                      <FormDescription>
                         This is your public display name.
@@ -76,7 +76,7 @@ export default function RegisterForm() {
                   <FormItem>
                      <FormLabel>Password</FormLabel>
                      <FormControl>
-                        <Input placeholder="shadcn" {...field} />
+                        <Input {...field} />
                      </FormControl>
                      <FormMessage />
                   </FormItem>
@@ -89,13 +89,13 @@ export default function RegisterForm() {
                   <FormItem>
                      <FormLabel>Confirm Password</FormLabel>
                      <FormControl>
-                        <Input placeholder="shadcn" {...field} />
+                        <Input {...field} />
                      </FormControl>
                      <FormMessage />
                   </FormItem>
                )}
             />
-            <Button type="submit">Submit</Button>
+            <Button type="submit">Register</Button>
          </form>
       </Form>
    );
