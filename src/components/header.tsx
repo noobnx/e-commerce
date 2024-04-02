@@ -5,7 +5,7 @@ import { ModeToggle } from '@/components/toggle-theme';
 
 export default function Header() {
    return (
-      <div className={clsx('flex items-center gap-5 p-10')}>
+      <div className={clsx('flex justify-end items-center gap-5 p-10')}>
          <ul className={clsx('flex items-center gap-3')}>
             <li>
                <Link href="/register">Đăng Ký</Link>
