@@ -19,6 +19,8 @@ import {
    RegisterBody,
    RegisterBodyType,
 } from '@/schemaValidations/auth.schema';
+import { log } from 'console';
+import envConfig from '@/config';
 
 export default function RegisterForm() {
    const form = useForm<RegisterBodyType>({
@@ -31,8 +33,18 @@ export default function RegisterForm() {
       },
    });
 
-   function onSubmit(values: z.infer<typeof RegisterBody>) {
-      console.log(values);
+   async function onSubmit(values: z.infer<typeof RegisterBody>) {
+      const result = await fetch(
+         `${envConfig.NEXT_PUBLIC_API_ENDPOINT}/auth/register`,
+         {
+            body: JSON.stringify(values),
+            headers: {
+               'Content-Type': 'application/json',
+            },
+            method: 'POST',
+         },
+      ).then((res) => res.json());
+      console.log(result);
    }
    return (
       <Form {...form}>
@@ -47,7 +59,7 @@ export default function RegisterForm() {
                   <FormItem>
                      <FormLabel>Email</FormLabel>
                      <FormControl>
-                        <Input {...field} />
+                        <Input type="email" {...field} />
                      </FormControl>
                      <FormMessage />
                   </FormItem>
@@ -76,7 +88,7 @@ export default function RegisterForm() {
                   <FormItem>
                      <FormLabel>Password</FormLabel>
                      <FormControl>
-                        <Input {...field} />
+                        <Input type="password" {...field} />
                      </FormControl>
                      <FormMessage />
                   </FormItem>
@@ -89,13 +101,15 @@ export default function RegisterForm() {
                   <FormItem>
                      <FormLabel>Confirm Password</FormLabel>
                      <FormControl>
-                        <Input {...field} />
+                        <Input type="password" {...field} />
                      </FormControl>
                      <FormMessage />
                   </FormItem>
                )}
             />
-            <Button type="submit">Register</Button>
+            <Button type="submit" className="w-full">
+               Register
+            </Button>
          </form>
       </Form>
    );
