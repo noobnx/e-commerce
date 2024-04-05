@@ -3,6 +3,7 @@ import { Quicksand } from 'next/font/google';
 
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/header';
 
 const quicksand = Quicksand({
@@ -23,6 +24,7 @@ export default function RootLayout({
    return (
       <html lang="en" suppressHydrationWarning>
          <body className={quicksand.className}>
+            <Toaster />
             <ThemeProvider
                attribute="class"
                defaultTheme="system"

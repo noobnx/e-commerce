@@ -19,7 +19,6 @@ import {
    RegisterBody,
    RegisterBodyType,
 } from '@/schemaValidations/auth.schema';
-import { log } from 'console';
 import envConfig from '@/config';
 
 export default function RegisterForm() {
